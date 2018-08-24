@@ -199,7 +199,7 @@ services:
                 aliases:
                     - pg
 ```
-docker swarm中应用的启动
+* docker swarm中启动应用
 
 ```
 [root@hadoop tmp]# docker stack deploy -c pg-scws.yml pg
