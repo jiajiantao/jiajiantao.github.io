@@ -61,6 +61,12 @@ postgres-scws                                              latest              8
 使用镜像
 ===============================================
 
+* 在当前目录下创建config和sql文件夹
+
+```
+[root@hadoop tmp]#  mkdir config sql
+```
+
 * 生成用户自定义配置文件
 
 ```
@@ -129,7 +135,7 @@ faa15042fd503ef5f2fb4b6a399331cfa948d6d856bd38ad08da2b601759daeb
 * 验证
 
 ```
-[root@hadoop tmp]# docker-enter faa15042fd50
+[root@hadoop tmp]# docker exec -it  faa15042fd50 /bin/bash
 mesg: ttyname failed: Success
 root@faa15042fd50:~# su postgres
 $ psql -U tatt -d tatt
