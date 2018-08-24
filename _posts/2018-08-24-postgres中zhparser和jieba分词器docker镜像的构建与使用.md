@@ -104,47 +104,6 @@ make USE_PGXS=1
 make USE_PGXS=1 install
 make USE_PGXS=1 installcheck
 ```
-```
-[root@hadoop tmp]# cat sql/init.sql
-create extension pg_jieba;
-create extension zhparser; 
-CREATE TEXT SEARCH CONFIGURATION testzhcfg (PARSER = zhparser);
-ALTER TEXT SEARCH CONFIGURATION testzhcfg ADD MAPPING FOR n,v,a,i,e,l,t WITH simple
-```
-```
-[root@hadoop tmp]# head -30 sql/tatt.sql        
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 10.2 (Debian 10.2-1.pgdg90+1)
--- Dumped by pg_dump version 10.2 (Debian 10.2-1.pgdg90+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-SET row_security = off;
-
-SET search_path = public, pg_catalog;
-
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
---
--- Name: rmtj_advanced_search; Type: TABLE; Schema: public; Owner: tatt
---
-
-CREATE TABLE rmtj_advanced_search (
-    id numeric(32,0) NOT NULL,
-    sub_case_type character varying(128),
-    sub_case_type_code character varying(128),
-```
-
 
 * 目录结构信息为
 
