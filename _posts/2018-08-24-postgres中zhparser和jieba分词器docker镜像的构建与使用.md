@@ -147,6 +147,7 @@ CREATE TABLE rmtj_advanced_search (
 
 
 * 目录结构信息为
+
 ```
 [root@hadoop tmp]# tree
 .
@@ -159,12 +160,19 @@ CREATE TABLE rmtj_advanced_search (
 
 2 directories, 4 files
 ```
+
+
 * 启动`postgres-scws:latest`实例
+
 ```
 [root@hadoop tmp]# docker run --name postgresql -p 5432:5432 -v "$PWD/sql/":/docker-entrypoint-initdb.d/ -v "$PWD/config/postgresql.conf":/etc/postgresql/postgresql.conf -v "$PWD/labeldic.txt":/usr/share/postgresql/10/tsearch_data/labeldic.txt -e POSTGRES_PASSWORD=tatt -e POSTGRES_DB=tatt -e POSTGRES_USER=tatt -d postgres-scws:latest  -c config_file=/etc/postgresql/postgresql.conf 
 faa15042fd503ef5f2fb4b6a399331cfa948d6d856bd38ad08da2b601759daeb
 ```
+
+
 验证
+
+
 ```
 [root@hadoop tmp]# docker-enter faa15042fd50
 mesg: ttyname failed: Success
@@ -205,9 +213,14 @@ tatt=# select * from rum_ts_distance(to_tsvector('jiebacfg', '小明硕士毕业
 
 tatt=# 
 ```
+
+
 * 在docker-swarm中启动
 
 docker stack compose文件为
+
+
+
 ```
 [root@hadoop tmp]# cat pg-scws.yml 
 version: "3.2"
@@ -237,6 +250,9 @@ services:
                     - pg
 ```
 docker swarm中应用的启动
+
+
+
 ```
 [root@hadoop tmp]# docker stack deploy -c pg-scws.yml pg
 Creating network pg_cluster
