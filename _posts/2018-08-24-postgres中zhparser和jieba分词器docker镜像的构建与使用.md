@@ -3,6 +3,7 @@
 构建镜像
 ===============================================
 * 构建镜像的Dockerfile为
+
 ```
 [root@hadoop tmp]# cat Dockerfile 
 FROM postgres:10.2
@@ -49,19 +50,25 @@ RUN     /sbin/ldconfig -v && \
         rm -rf /usr/lib/scws/scws* /usr/lib/scws/zhparser* /usr/lib/scws/pg_jieba
 ```
 * 生成镜像`postgres-scws:latest`
+
 ```
 [root@hadoop tmp]# docker build -t postgres-scws .
 
 [root@hadoop tmp]# docker images | grep postgres-scws
 postgres-scws                                              latest              89cb6bdc8748        28 minutes ago      664MB
 ```
+
 使用镜像
 ===============================================
+
 * 生成用户自定义配置文件
+
 ```
 [root@hadoop tmp]# docker run -i --rm postgres-scws cat /usr/share/postgresql/postgresql.conf.sample > config/postgresql.conf
 ```
+
 * 自定义配置文件，在文件末尾添加SCWS的zhparser用户自定义词典配置信息
+
 ```
 [root@hadoop tmp]# echo -e "zhparser.extra_dicts = 'labeldic.xdb'\nzhparser.dict_in_memory = 'true'" >>  config/postgresql.conf 
 [root@hadoop tmp]# tail config/postgresql.conf 
@@ -77,6 +84,7 @@ zhparser.extra_dicts = 'labeldic.xdb'
 zhparser.dict_in_memory = 'true'
 ```
 * 数据库初始化shell脚本
+
 ```
 [root@hadoop tmp]# cat sql/init.sh 
 #!/bin/bash - 
@@ -99,6 +107,7 @@ make USE_PGXS=1 install
 make USE_PGXS=1 installcheck
 ```
 * 目录结构信息为
+
 ```
 [root@hadoop tmp]# tree
 .
@@ -112,11 +121,13 @@ make USE_PGXS=1 installcheck
 2 directories, 4 files
 ```
 * 启动`postgres-scws:latest`实例
+
 ```
 [root@hadoop tmp]# docker run --name postgresql -p 5432:5432 -v "$PWD/sql/":/docker-entrypoint-initdb.d/ -v "$PWD/config/postgresql.conf":/etc/postgresql/postgresql.conf -v "$PWD/labeldic.txt":/usr/share/postgresql/10/tsearch_data/labeldic.txt -e POSTGRES_PASSWORD=tatt -e POSTGRES_DB=tatt -e POSTGRES_USER=tatt -d postgres-scws:latest  -c config_file=/etc/postgresql/postgresql.conf 
 faa15042fd503ef5f2fb4b6a399331cfa948d6d856bd38ad08da2b601759daeb
 ```
-验证
+* 验证
+
 ```
 [root@hadoop tmp]# docker-enter faa15042fd50
 mesg: ttyname failed: Success
@@ -159,6 +170,7 @@ tatt=#
 ```
 * 在docker-swarm中启动
 docker stack compose文件为
+
 ```
 [root@hadoop tmp]# cat pg-scws.yml 
 version: "3.2"
@@ -188,6 +200,7 @@ services:
                     - pg
 ```
 docker swarm中应用的启动
+
 ```
 [root@hadoop tmp]# docker stack deploy -c pg-scws.yml pg
 Creating network pg_cluster
