@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-[jiajiantao's blog][https://jiajiantao.github.io/] /
+[jiajiantao's blog](https://jiajiantao.github.io/)
