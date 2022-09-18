@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>vip</title>
+  <link rel="shortcut icon" href="favicon.icon" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" media="(max-width:768px)" href="./css/mobile.css">
+  <script type="text/javascript">
+    function dihejk() {
+      var diz = document.getElementById("url").value;
+      var jkurl = document.getElementById("api");
+      var jk = document.getElementById("api").selectedIndex;
+      var jkv = jkurl.options[jk].value;;
+      var cljurl = document.getElementById("player");
+      cljurl.src = jkv + diz
+    }
+  </script>
+</head>
+
+<body>
+
+  <!--site-banner-end-->
+
+  <!--player-start-->
+  <div class="site-player">
+    <iframe style="border-radius: 15px; background-color:#000" id="player" src="" width="580px" height="400px"
+      scrolling="no" frameborder="0"></iframe>
+  </div>
+  <!--player-end-->
+
+  <!--input-group-start-->
+  <div class="input-group">
+    <select class="select-api" id="api">
+      <option value="https://jx.bozrc.com:4433/player/?url=" selected="">B站解析:parwix</option>
+      <option value="https://www.ckplayer.vip/jiexi/?url=" selected="">Ckplayer</option>
+      <option value="https://www.pangujiexi.cc/jiexi.php?url=" selected="">盘古</option>
+      <option value="https://www.h8jx.com/jiexi.php?url=" selected="">H8</option>
+      <option value="https://api.jiexi.la/?url=" selected="">解析la</option>
+      <option value="https://vip.laobandq.com/jiexi.php?url=" selected="">老板</option>
+      <option value="https://jiexi.janan.net/jiexi/?url=" selected="">MUTV</option>
+      <option value="https://okjx.cc/?url=" selected="">OK</option>
+      <option value="https://jx.yparse.com/index.php?url=" selected="">云析</option>
+      <option value="https://www.8090g.cn/?url=" selected="">8090</option>
+      <option value="http://jx.ivito.cn/?url=" selected="">维多解析（超清）</option>
+      <option value="https://www.ckmov.vip/api.php?url=" selected="">解析系统</option>
+      <option value="https://vip.bljiex.com/?v=" selected="">bl解析</option>
+      <option value="https://vip.bljiex.com/?v=" selected="">bl解析</option>
+      <option value="http://www.1717yun.com/jx/ty.php?url=" selected="">通用vip接口3</option>
+      <option value="https://jx.m3u8.tv/jiexi/?url=" selected="">⑤号接口</option>
+      <option value="https://www.1717yun.com/jx/ty.php?url=" selected="">玩的嗨——46-若接口失效可反馈！QQ群:340569308</option>
+      <option value="https://z1.m1907.cn/?jx=" selected="">玩的嗨——28-若接口失效可反馈！QQ群:340569308</option>
+      <option value="https://www.8090.la/8090/?url=" selected="">全能vip接口②</option>
+      <option value="https://www.1717yun.com/1717yun/?url=" selected="">1717</option>
+      <option value="https://www.pangujiexi.com/jiexi/?url=" selected="">盘古</option>
+      <option value="https://dmjx.m3u8.tv/?url=" selected="">eptept</option>
+      <option value="https://vip.bljiex.com/?v=" selected="">BL</option>
+      <option value="https://api.okjx.cc:3389/jx.php?url=" selected="">OK解析</option>
+      <option value="https://m2090.com/?url=" selected="">m2090</option>
+      <option value="https://www.mtosz.com/m3u8.php?url=" selected="">Mao解析</option>
+      <option value="http://jx.ppflv.com/?url=" selected="">云解析</option>
+      <option value="https://jx.xmflv.com/?url=" selected="">虾米解析</option>
+      <option value="https://jx.bozrc.com:4433/player/?url=" selected="">Parwix解析1</option>
+      <option value="https://jx.aidouer.net/?url=" selected="">爱豆解析</option>
+      <option value="https://okjx.cc/?url=" selected="">OK解析2</option>
+      <option value="https://www.playm3u8.cn/jiexi.php?url=" selected="">play</option>
+      <option value="https://www.yemu.xyz/?url=" selected="">夜幕</option>
+      <option value="https://go.yh0523.cn/y.cy?url=" selected="">0523</option>
+      <option value="https://www.administratorw.com/video.php?url=" selected="">administratorw</option>
+      <option value="https://www.gai4.com/?url=" selected="">CHok</option>
+      <option value="https://jx.ergan.top/?url=" selected="">ergan</option>
+      <option value="https://jx.m3u8.tv/jiexi/?url=" selected="">TV解析[腾讯 (芒果)]</option>
+      <option value="http://vip.wandhi.com/?v=" selected="">玩的嗨——45-若接口失效可反馈！QQ群:340569308</option>
+      <option value="https://api.qianqi.net/vip/?url=" selected="">冰豆</option>
+      <option value="https://jx.playerjy.com/?url=" selected="">JY</option>
+      <option value="https://lecurl.cn/?url=" selected="">LE</option>
+      <option value="https://api.leduotv.com/wp-api/ifr.php?isDp=1&amp;vid=" selected="">乐多</option>
+      <option value="https://www.nxflv.com/?url=" selected="">诺讯</option>
+      <option value="https://jx.blbo.cc:4433/?url=" selected="">人人迷</option>
+      <option value="https://jsap.attakids.com/?url=" selected="">思古3</option>
+      <option value="https://jx.dj6u.com/?url=" selected="">听乐</option>
+      <option value="https://sb.5gseo.net/?url=" selected="">云端</option>
+      <option value="https://jx.mmkv.cn/tv.php?url=" selected="">七哥</option>
+      <option value="https://jx.618g.com/?url=" selected="">618解析</option>
+      <option value="https://jx.973973.xyz/?url=" selected="">973973</option>
+      <option value="https://y.9dan.cc/?v=" selected="">9dan</option>
+      <option value="https://jx.we-vip.com/?url=" selected="">JY解析</option>
+    </select>
+    <input class="url" type="search" placeholder="请在此输入播放地址" id="url">
+    <button class='btn-confirm' onclick="dihejk()">播放</button>
+  </div>
+</body>
+
+</html>
